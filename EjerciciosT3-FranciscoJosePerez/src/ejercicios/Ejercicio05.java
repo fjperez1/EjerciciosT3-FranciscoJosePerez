@@ -14,19 +14,19 @@ public class Ejercicio05 {
 		
 		//Declaramos las variables que vamos a utilizar
 		
-		int num, contador=0, pos=0, neg=0, contNeg=0, cer=0;
+		int num, contador=1, pos=0, cer=0;
+		double neg = 0, contNeg=0;
 		Scanner lectura = new Scanner (System.in);
 		
 		//Solicitamos al usuario que introduzca el número y creamos el buble
 		
-		System.out.println("Por favor, introduce un número positivo o negativo");
-		num = lectura.nextInt();
-
 		while (contador<=10) {
 						
+			System.out.println("Por favor, introduce un número positivo o negativo");
+			num = lectura.nextInt();
 			contador++;
 			
-			if (num>=0) {
+			if (num>0) {
 				
 				pos+=num;
 				
@@ -34,19 +34,24 @@ public class Ejercicio05 {
 				
 				cer++;
 				
-			} else
+			} else if (num<0)
 				
-				pos-=num;
+				neg+=num;
 				contNeg++;
-			
-			System.out.println("Por favor, introduce un número positivo o negativo");
-			num = lectura.nextInt();
 			
 		}
 		
 		System.out.println("La suma de los números positivos da un total de " + pos);
-		System.out.println((contNeg!=0 && ) ? "La media de los números negativos da un total de " + (neg/contNeg):"No has introducido numeros negativos");
-		System.out.println("La suma de los ceros da un total de " + cer);
+		if (contNeg!=0 && neg!=0) {
+			
+			System.out.println("La media de los números negativos da un total de " + (neg/contNeg));
+		
+		}else
+			
+			System.out.println("No has introducido números negativos");
+
+		
+		System.out.println("Has introducido un total de " + cer + " ceros");
 
 		
 		//Cerramos el scanner
